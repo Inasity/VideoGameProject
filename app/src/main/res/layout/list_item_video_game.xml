@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="videoGame"
+            type="com.example.android.videogameproject.network.data.Results" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/listVideoGameBackground"
+            android:layout_width="418dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@+id/listVideoGameImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/capture" />
+
+        <ImageView
+            android:id="@+id/listVideoGameImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            app:imageUrl="@{videoGame.background_image}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/error_image" />
+
+        <TextView
+            android:id="@+id/listVideoGameName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="@{videoGame.name}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/listVideoGameImage"
+            app:layout_constraintTop_toTopOf="@+id/listVideoGameImage"
+            tools:text="God of War"/>
+
+        <TextView
+            android:id="@+id/listVideoGameDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:text="@{videoGame.released}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/listVideoGameName"
+            app:layout_constraintStart_toStartOf="@+id/listVideoGameName"
+            app:layout_constraintTop_toBottomOf="@+id/listVideoGameName"
+            tools:text="February 30th 2022"/>
+
+        <TextView
+            android:id="@+id/listGameESRBRating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{videoGame.esrb_rating.name}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/listVideoGameDate"
+            app:layout_constraintStart_toStartOf="@+id/listVideoGameDate"
+            app:layout_constraintTop_toBottomOf="@+id/listVideoGameDate"
+            tools:text="Rated M for Mature"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
